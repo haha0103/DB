@@ -1,31 +1,31 @@
---instr:Æ¯Á¤ ¹®ÀÚ À§Ä¡ ÃßÃâ               ¡é¼¼¹øÂ°'-'À§Ä¡
+--instr:íŠ¹ì • ë¬¸ì ìœ„ì¹˜ ì¶”ì¶œ               â†“ì„¸ë²ˆì§¸'-'ìœ„ì¹˜
 SELECT 'A-B-C-D', instr('A-B-C-D','-',1,3) "INSTR" from dual;
 SELECT * FROM student;
 SELECT name, tel, instr(tel,'3'), profno from student where deptno1=101;
 
---lpad:¿ŞÂÊÀ¸·Î Æ¯Á¤ ¹®ÀÚ Ã¤¿ò
+--lpad:ì™¼ìª½ìœ¼ë¡œ íŠ¹ì • ë¬¸ì ì±„ì›€
 SELECT name, id, lpad(id,10,'*') from student where deptno1=201;
 SELECT name, id, lpad(id,10,'12345') from student where deptno1=201;
 SELECT lpad(ename,9,'123456789') from emp Where deptno=10;
---rpad:¿À¸¥ÂÊÀ¸·Î Æ¯Á¤ ¹®ÀÚ Ã¤¿ò
+--rpad:ì˜¤ë¥¸ìª½ìœ¼ë¡œ íŠ¹ì • ë¬¸ì ì±„ì›€
 SELECT name, id, Rpad(id,10,'*') from student where deptno1=201;
 SELECT Rpad(ename,10,'-') from emp where deptno=10;
 SELECT Rpad(ename,9,'1234567789') from emp where deptno=10;
 SELECT Rpad(ename,9,substr('1234567789',lengthb(ename)+1)) from emp where deptno=10;
 
---ltrim:ÁÖ¾îÁø ¹®ÀÚ¿­¿¡¼­ ¿ŞÂÊ Æ¯Á¤ ¹®ÀÚ »èÁ¦
+--ltrim:ì£¼ì–´ì§„ ë¬¸ìì—´ì—ì„œ ì™¼ìª½ íŠ¹ì • ë¬¸ì ì‚­ì œ
 SELECT ename from emp where deptno=10;
 SELECT ltrim(ename,'C') from emp where deptno=10;
---rtrim:ÁÖ¾îÁø ¹®ÀÚ¿­¿¡¼­ ¿À¸¥ÂÊ Æ¯Á¤ ¹®ÀÚ »èÁ¦
+--rtrim:ì£¼ì–´ì§„ ë¬¸ìì—´ì—ì„œ ì˜¤ë¥¸ìª½ íŠ¹ì • ë¬¸ì ì‚­ì œ
 SELECT ename from emp where deptno=10;
 SELECT rtrim(ename,'R') from emp where deptno=10;
 
---replace:A¸¦ B·Î Ä¡È¯ÇÔ
---                     ename¿¡ Ã¹¹øÂ°¿¡¼­ µÎ±ÛÀÚ¸¦ ¡é·Î¹Ù²ã¶ó  
+--replace:Aë¥¼ Bë¡œ ì¹˜í™˜í•¨
+--                     enameì— ì²«ë²ˆì§¸ì—ì„œ ë‘ê¸€ìë¥¼ â†“ë¡œë°”ê¿”ë¼  
 SELECT ename, replace(ename, substr(ename,1,2),'**')from emp where deptno=10;
 
---¹®Á¦1
+--ë¬¸ì œ1
 SELECT ename, replace(ename, substr(ename,2,2),'--') from emp;
---¹®Á¦2
+--ë¬¸ì œ2
 SELECT name,jumin, replace(jumin,substr(jumin,7,7),'-/-/-/-') "REPLACE" from student where deptno1=101;
 
