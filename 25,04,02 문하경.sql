@@ -24,7 +24,4 @@ SELECT * from emp;
 SELECT ename||'('||job||') , '||ename||''||job||''''  from emp;
 
 --연습3
-
-
-
-
+SELECT ename||'''s sal is $'||sal "Name and Sal" FROM emp;
