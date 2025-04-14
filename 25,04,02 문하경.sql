@@ -1,29 +1,29 @@
 --p28
 SELECT * from emp;
---Å×ÀÌºí ±¸Á¶
+--í…Œì´ë¸” êµ¬ì¡°
 desc emp;
 SELECT deptno from emp;
-      --Áßº¹ Á¦°Å
+      --ì¤‘ë³µ ì œê±°
 SELECT DISTINCT deptno from emp;
-                          --Á¤·Ä  ÇÊµå ÀÌ¸§µµ µÈµ¥    
+                          --ì •ë ¬  í•„ë“œ ì´ë¦„ë„ ëœë°    
 SELECT job, ename from emp order by 1,2;
-SELECT DISTINCT job, ename from emp; -- ÇÊµå°¡ µÎ°³¿©¼­ ¾ÈµÈ´ÙÇß¾î (and °°Àº°Ç°¡?)
+SELECT DISTINCT job, ename from emp; -- í•„ë“œê°€ ë‘ê°œì—¬ì„œ ì•ˆëœë‹¤í–ˆì–´ (and ê°™ì€ê±´ê°€?)
 
---¿¬°á ¿¬»êÀÚ
+--ì—°ê²° ì—°ì‚°ìž
 SELECT job, ename from emp; 
 SELECT job||ename from emp;
-                                  -- ÇÊµåÀÌ¸§
+                                  -- í•„ë“œì´ë¦„
 SELECT ename||' ''s job is '||job "NAME AND JOB" from emp;
 
---¿¬½À 1
+--ì—°ìŠµ 1
 SELECT * from student;
 SELECT name||'''s ID: '||ID||', WEIGHT is '||weight||'kg' "ID AND WEIGHT"  from student; 
 
---¿¬½À2
+--ì—°ìŠµ2
 SELECT * from emp;
 SELECT ename||'('||job||') , '||ename||''||job||''''  from emp;
 
---¿¬½À3
+--ì—°ìŠµ3
 
 
 
