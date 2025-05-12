@@ -19,8 +19,8 @@ SELECT '24/4/28'+1 from dual; --ERERO
 
 --NVL(칼럼, 치환할 값) null
 SELECT ename, comm, nvl(comm,0), nvl(comm,100) from emp where deptno=30;
-
-SELECT empno, ename, sal, comm, nvl(comm, comm+sal,sal*0) from emp where deptno=30;
+--NVL2(col 1, col 2, col 3)
+SELECT empno, ename, sal, comm, nvl2(comm, comm+sal,sal*0) from emp where deptno=30;
 
 --DECODE(A,B,T,F)
 SELECT * from professor;
