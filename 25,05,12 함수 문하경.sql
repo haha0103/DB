@@ -1,32 +1,32 @@
 --2025/05/12 
---Çü º¯È¯ ÇÔ¼ö
+--í˜• ë³€í™˜ í•¨ìˆ˜
 SELECT '3'+'3' from dual;
 SELECT '3+3' from dual;
-SELECT 2+'A' from dual; --¼ıÀÚÃ³·³ »÷±ä ¹®ÀÚ¸¸ º¯È¯ °¡´É ERRERO
+SELECT 2+'A' from dual; --ìˆ«ìì²˜ëŸ¼ ìƒŒê¸´ ë¬¸ìë§Œ ë³€í™˜ ê°€ëŠ¥ ERRERO
 
---to_char(): ³¯Â¥->¹®ÀÚ
+--to_char(): ë‚ ì§œ->ë¬¸ì
 SELECT * from student;
---to_number(): ¹®ÀÚ->¼ıÀÚ
+--to_number(): ë¬¸ì->ìˆ«ì
 SELECT to_number('5') from dual;
 SELECT to_number('A') from dual; --ERERO
 SELECT ascii('A') from dual;
 
---to_date(): ¹®ÀÚ->³¯Â¥
+--to_date(): ë¬¸ì->ë‚ ì§œ
 SELECT to_date('24/4/28')+1 from dual;
 SELECT '24/4/28'+1 from dual; --ERERO
 
---ÀÏ¹İ ÇÔ¼ö
+--ì¼ë°˜ í•¨ìˆ˜
 
---NVL(Ä®·³, Ä¡È¯ÇÒ °ª) null
+--NVL(ì¹¼ëŸ¼, ì¹˜í™˜í•  ê°’) null
 SELECT ename, comm, nvl(comm,0), nvl(comm,100) from emp where deptno=30;
 
-SELECT empno, ename, sal, comm, nvl(comm+sal,sal*0) from emp where deptno=30;
+SELECT empno, ename, sal, comm, nvl(comm, comm+sal,sal*0) from emp where deptno=30;
 
 --DECODE(A,B,T,F)
 SELECT * from professor;
 SELECT deptno, name, DECODE(deptno,101,'Computer Engineering','AAA') "DNAME" from professor;
 
---CASE case Á¶°Ç when °á°ú1 than Ãâ·Â1 when °á°ú2 than Ãâ·Â2 else Ãâ·Â3 end "ÄÃ·³¸í" 
+--CASE case ì¡°ê±´ when ê²°ê³¼1 than ì¶œë ¥1 when ê²°ê³¼2 than ì¶œë ¥2 else ì¶œë ¥3 end "ì»¬ëŸ¼ëª…" 
 SELECT empno, ename, sal,
 CASE when sal BETWEEN 1 and 1000 then 'level 1'
      when sal BETWEEN 1001 and 2000 then 'level 2'
