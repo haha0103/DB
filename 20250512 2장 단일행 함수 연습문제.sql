@@ -1,82 +1,82 @@
---2Àå ´ÜÀÏÇà ÇÔ¼ö ¿¬½À¹®Á¦
-1. emp Å×ÀÌºíÀ» »ç¿ëÇÏ¿© deptno°¡ 10 ¹øÀÎ »ç¿øµéÀÇ »ç¿øÀÌ¸§À» ÃÑ 9 ¹ÙÀÌÆ®·Î Ãâ·ÂÇÏµÇ ºó ÀÚ¸®¿¡´Â ÇØ´ç ÀÚ¸®ÀÇ ¼ýÀÚ·Î Ã¤¿ì¼¼¿ä.
+--2ìž¥ ë‹¨ì¼í–‰ í•¨ìˆ˜ ì—°ìŠµë¬¸ì œ
+1. emp í…Œì´ë¸”ì„ ì‚¬ìš©í•˜ì—¬ deptnoê°€ 10 ë²ˆì¸ ì‚¬ì›ë“¤ì˜ ì‚¬ì›ì´ë¦„ì„ ì´ 9 ë°”ì´íŠ¸ë¡œ ì¶œë ¥í•˜ë˜ ë¹ˆ ìžë¦¬ì—ëŠ” í•´ë‹¹ ìžë¦¬ì˜ ìˆ«ìžë¡œ ì±„ìš°ì„¸ìš”.
+   select lpad(ename,9,'123456789') from emp where deptno = 10;
+
+2. emp í…Œì´ë¸”ì—ì„œ ì•„ëž˜ì™€ ê°™ì´ deptno ê°€ 10ë²ˆì¸ ì‚¬ì›ë“¤ì˜ ename ì„ 10ìžë¦¬ë¡œ ì¶œë ¥í•˜ë˜ ì˜¤ë¥¸ìª½ ë¹ˆìžë¦¬ì—ëŠ” â€˜-â€™ ë¡œ ì±„ìš°ì„¸ìš”.
+   select rpad(ename,10,'-') from emp where deptno = 10;
+
+3. empí…Œì´ë¸”ì—ì„œ deptnoê°€ 10ë²ˆì¸ ì‚¬ì›ë“¤ì˜ ì´ë¦„ì„ ì´ 9ìžë¦¬ë¡œ ì¶œë ¥í•˜ë˜ ì˜¤ë¥¸ìª½ ë¹ˆìžë¦¬ëŠ” í•´ë‹¹ ìžë¦¿ìˆ˜ì— í•´ë‹¹í•˜ëŠ” ìˆ«ìžê°€ ì¶œë ¥ë˜ë„ë¡ ì¶œë ¥
+   select substr('123456789', lengthb(ename)+1) from emp where deptno = 10;
 
 
-2. emp Å×ÀÌºí¿¡¼­ ¾Æ·¡¿Í °°ÀÌ deptno °¡ 10¹øÀÎ »ç¿øµéÀÇ ename À» 10ÀÚ¸®·Î Ãâ·ÂÇÏµÇ ¿À¸¥ÂÊ ºóÀÚ¸®¿¡´Â ¡®-¡¯ ·Î Ã¤¿ì¼¼¿ä.
+4. empí…Œì´ë¸”ì—ì„œ ì•„ë¼ì™€ ê°™ì´ 20ë²ˆ ë¶€ì„œì— ì†Œì†ëœ ì§ì›ë“¤ì˜ ì´ë¦„ê³¼ 2~3ë²ˆì§¸ ê¸€ìžë§Œ '-'ìœ¼ë¡œ ë³€ê²½í•´ì„œ ì¶œë ¥í•˜ì„¸ìš”.
+   select ename, replace(ename, substr(ename,2,2),'--') from emp where deptno = 20;
+replace replace replace
+5. studentí…Œì´ë¸”ì—ì„œ ì „ê³µ1(deptno1)dl 101ë²ˆì¸ í•™ìƒë“¤ì˜ ì´ë¦„ê³¼ ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸ë¥¼ ì¶œë ¥í•˜ë˜ ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸ì˜ ë’¤ 7ìžë¦¬ëŠ” '-/'ë¡œ í‘œì‹œë˜ë„ë¡ ì¶œë ¥í•˜ì„¸ìš”.
+   select name, jumin, replace(jumin, substr(jumin,7,7),'-/-/-/-') "replace" from student where deptno1 = 101;
 
 
-3. empÅ×ÀÌºí¿¡¼­ deptno°¡ 10¹øÀÎ »ç¿øµéÀÇ ÀÌ¸§À» ÃÑ 9ÀÚ¸®·Î Ãâ·ÂÇÏµÇ ¿À¸¥ÂÊ ºóÀÚ¸®´Â ÇØ´ç ÀÚ¸´¼ö¿¡ ÇØ´çÇÏ´Â ¼ýÀÚ°¡ Ãâ·ÂµÇµµ·Ï Ãâ·Â
-
-
-
-4. empÅ×ÀÌºí¿¡¼­ ¾Æ¶ó¿Í °°ÀÌ 20¹ø ºÎ¼­¿¡ ¼Ò¼ÓµÈ Á÷¿øµéÀÇ ÀÌ¸§°ú 2~3¹øÂ° ±ÛÀÚ¸¸ '-'À¸·Î º¯°æÇØ¼­ Ãâ·ÂÇÏ¼¼¿ä.
-
-
-5. studentÅ×ÀÌºí¿¡¼­ Àü°ø1(deptno1)dl 101¹øÀÎ ÇÐ»ýµéÀÇ ÀÌ¸§°ú ÁÖ¹Îµî·Ï¹øÈ£¸¦ Ãâ·ÂÇÏµÇ ÁÖ¹Îµî·Ï¹øÈ£ÀÇ µÚ 7ÀÚ¸®´Â '-/'·Î Ç¥½ÃµÇµµ·Ï Ãâ·ÂÇÏ¼¼¿ä.
-
-
-
-6. student Å×ÀÌºí¿¡¼­ Àü°ø1ÀÌ 102¹øÀÎ ÇÐ»ýµéÀÇ ÀÌ¸§°ú ÀüÈ­¹øÈ£, ÀüÈ£¹øÈ£¿¡¼­ ±¹¹ø ºÎºÐ¸¸ '*'Ã³¸®ÇÏ¿© Ãâ·ÂÇÏ¼¼¿ä.
-   ´Ü, ¸ðµç ±¹¹øÀº 3ÀÚ¸®·Î °£ÁÖÇÕ´Ï´Ù. ** REPLACE ÄûÁî 3 ** 
-
-
-
-7. student Å×ÀÌºí¿¡¼­ deptno1ÀÌ 101¹øÀÎ ÇÐ°ú ÇÐ»ýµéÀÇ ÀÌ¸§°ú ÀüÈ­¹øÈ£¿Í ÀüÈ­¹øÈ£¿¡¼­ Áö¿ª¹øÈ£¿Í ±¹¹øÀ» Á¦¿ÜÇÑ ³ª¸ÓÁö ¹øÈ£¸¦ *·Î Ç¥½ÃÇØ¼­ Ãâ·ÂÇÏ¼¼¿ä. ** REPLACE ÄûÁî 4 
-
-
-8. Student Å×ÀÌºíÀÇ birthday ÄÃ·³À» »ç¿ëÇÏ¿© »ýÀÏÀÌ 1¿ùÀÎ ÇÐ»ýÀÇ ÀÌ¸§°ú birthday ¸¦ ¾Æ·¡ È­¸é°ú °°ÀÌ Ãâ·ÂÇÏ¼¼¿ä.
+6. student í…Œì´ë¸”ì—ì„œ ì „ê³µ1ì´ 102ë²ˆì¸ í•™ìƒë“¤ì˜ ì´ë¦„ê³¼ ì „í™”ë²ˆí˜¸, ì „í˜¸ë²ˆí˜¸ì—ì„œ êµ­ë²ˆ ë¶€ë¶„ë§Œ '*'ì²˜ë¦¬í•˜ì—¬ ì¶œë ¥í•˜ì„¸ìš”.
+   ë‹¨, ëª¨ë“  êµ­ë²ˆì€ 3ìžë¦¬ë¡œ ê°„ì£¼í•©ë‹ˆë‹¤. ** REPLACE í€´ì¦ˆ 3 ** 
 
 
 
-9. emp Å×ÀÌºíÀÇ hiredate ÄÃ·³À» »ç¿ëÇÏ¿© ÀÔ»çÀÏÀÌ 1,2,3 ¿ùÀÎ »ç¶÷µéÀÇ »ç¹ø°ú ÀÌ¸§, ÀÔ»çÀÏÀ» Ãâ·ÂÇÏ¼¼¿ä.
-
-10. emp Å×ÀÌºíÀ» Á¶È¸ÇÏ¿© ÀÌ¸§ÀÌ 'ALLEN' ÀÎ »ç¿øÀÇ »ç¹ø°ú ÀÌ¸§°ú ¿¬ºÀÀ» Ãâ·ÂÇÏ¼¼¿ä. ´Ü ¿¬ºÀÀº (sal * 12)+comm ·Î °è»êÇÏ°í, ¿¬ºÀÀº Ãµ ´ÜÀ§ ±¸ºÐ±âÈ£·Î Ç¥½ÃÇÏ¼¼¿ä.
+7. student í…Œì´ë¸”ì—ì„œ deptno1ì´ 101ë²ˆì¸ í•™ê³¼ í•™ìƒë“¤ì˜ ì´ë¦„ê³¼ ì „í™”ë²ˆí˜¸ì™€ ì „í™”ë²ˆí˜¸ì—ì„œ ì§€ì—­ë²ˆí˜¸ì™€ êµ­ë²ˆì„ ì œì™¸í•œ ë‚˜ë¨¸ì§€ ë²ˆí˜¸ë¥¼ *ë¡œ í‘œì‹œí•´ì„œ ì¶œë ¥í•˜ì„¸ìš”. ** REPLACE í€´ì¦ˆ 4 
 
 
-
-11. professor Å×ÀÌºíÀ» Á¶È¸ÇÏ¿© 201 ¹ø ÇÐ°ú¿¡ ±Ù¹«ÇÏ´Â ±³¼öµéÀÇ ÀÌ¸§°ú ±Þ¿©, º¸³Ê½º, ¿¬ºÀÀ» ¾Æ·¡¿Í °°ÀÌ Ãâ·ÂÇÏ¼¼¿ä. 
-    ´Ü ¿¬ºÀÀº (pay*12)+bonus ·Î °è»êÇÏ°í Ãµ ´ÜÀ§ ±¸ºÐ±âÈ£¸¦ Ç¥½ÃÇÕ´Ï´Ù.
+8. Student í…Œì´ë¸”ì˜ birthday ì»¬ëŸ¼ì„ ì‚¬ìš©í•˜ì—¬ ìƒì¼ì´ 1ì›”ì¸ í•™ìƒì˜ ì´ë¦„ê³¼ birthday ë¥¼ ì•„ëž˜ í™”ë©´ê³¼ ê°™ì´ ì¶œë ¥í•˜ì„¸ìš”.
 
 
 
+9. emp í…Œì´ë¸”ì˜ hiredate ì»¬ëŸ¼ì„ ì‚¬ìš©í•˜ì—¬ ìž…ì‚¬ì¼ì´ 1,2,3 ì›”ì¸ ì‚¬ëžŒë“¤ì˜ ì‚¬ë²ˆê³¼ ì´ë¦„, ìž…ì‚¬ì¼ì„ ì¶œë ¥í•˜ì„¸ìš”.
+
+10. emp í…Œì´ë¸”ì„ ì¡°íšŒí•˜ì—¬ ì´ë¦„ì´ 'ALLEN' ì¸ ì‚¬ì›ì˜ ì‚¬ë²ˆê³¼ ì´ë¦„ê³¼ ì—°ë´‰ì„ ì¶œë ¥í•˜ì„¸ìš”. ë‹¨ ì—°ë´‰ì€ (sal * 12)+comm ë¡œ ê³„ì‚°í•˜ê³ , ì—°ë´‰ì€ ì²œ ë‹¨ìœ„ êµ¬ë¶„ê¸°í˜¸ë¡œ í‘œì‹œí•˜ì„¸ìš”.
 
 
-12. emp Å×ÀÌºíÀ» Á¶È¸ÇÏ¿© comm °ªÀ» °¡Áö°í ÀÖ´Â »ç¶÷µéÀÇ empno , ename , hiredate , ÃÑ¿¬ºÀ,15% ÀÎ»ó ÈÄ ¿¬ºÀÀ» ¾Æ·¡ È­¸éÃ³·³ Ãâ·ÂÇÏ¼¼¿ä.
-    ´Ü ÃÑ¿¬ºÀÀº (sal*12)+comm À¸·Î °è»êÇÏ°í ¾Æ·¡ È­¸é¿¡¼­´Â SAL ·Î Ãâ·ÂµÇ¾úÀ¸¸ç 15% ÀÎ»óÇÑ °ªÀº ÃÑ¿¬ºÀÀÇ 15% ÀÎ»ó °ªÀÔ´Ï´Ù.(HIREDATE ÄÃ·³ÀÇ ³¯Â¥ Çü½Ä°ú SAL ÄÃ·³ , 15% UP ÄÃ·³ÀÇ $ Ç¥½Ã¿Í , ±âÈ£ ³ª¿À°Ô ÇÏ¼¼¿ä)
+
+11. professor í…Œì´ë¸”ì„ ì¡°íšŒí•˜ì—¬ 201 ë²ˆ í•™ê³¼ì— ê·¼ë¬´í•˜ëŠ” êµìˆ˜ë“¤ì˜ ì´ë¦„ê³¼ ê¸‰ì—¬, ë³´ë„ˆìŠ¤, ì—°ë´‰ì„ ì•„ëž˜ì™€ ê°™ì´ ì¶œë ¥í•˜ì„¸ìš”. 
+    ë‹¨ ì—°ë´‰ì€ (pay*12)+bonus ë¡œ ê³„ì‚°í•˜ê³  ì²œ ë‹¨ìœ„ êµ¬ë¶„ê¸°í˜¸ë¥¼ í‘œì‹œí•©ë‹ˆë‹¤.
 
 
 
 
 
-13. Professor Å×ÀÌºí¿¡¼­ 201¹ø ÇÐ°ú ±³¼öµéÀÇ ÀÌ¸§°ú ±Þ¿©, bonus,ÃÑ ¿¬ºÀÀ» Ãâ·ÂÇÏ¼¼¿ä.´Ü, ¿¬ºÀÀº(PAY*12+bonus)·Î °è»êÇÏ°í bonus°¡ ¾ø´Â ±³¼ö´Â 0À¸·Î °è»êÇÏ¼¼¿ä.
+12. emp í…Œì´ë¸”ì„ ì¡°íšŒí•˜ì—¬ comm ê°’ì„ ê°€ì§€ê³  ìžˆëŠ” ì‚¬ëžŒë“¤ì˜ empno , ename , hiredate , ì´ì—°ë´‰,15% ì¸ìƒ í›„ ì—°ë´‰ì„ ì•„ëž˜ í™”ë©´ì²˜ëŸ¼ ì¶œë ¥í•˜ì„¸ìš”.
+    ë‹¨ ì´ì—°ë´‰ì€ (sal*12)+comm ìœ¼ë¡œ ê³„ì‚°í•˜ê³  ì•„ëž˜ í™”ë©´ì—ì„œëŠ” SAL ë¡œ ì¶œë ¥ë˜ì—ˆìœ¼ë©° 15% ì¸ìƒí•œ ê°’ì€ ì´ì—°ë´‰ì˜ 15% ì¸ìƒ ê°’ìž…ë‹ˆë‹¤.(HIREDATE ì»¬ëŸ¼ì˜ ë‚ ì§œ í˜•ì‹ê³¼ SAL ì»¬ëŸ¼ , 15% UP ì»¬ëŸ¼ì˜ $ í‘œì‹œì™€ , ê¸°í˜¸ ë‚˜ì˜¤ê²Œ í•˜ì„¸ìš”)
 
 
 
 
 
-14. emp Å×ÀÌºí¿¡¼­ deptno °¡ 30¹ø ÀÎ »ç¶÷µéÀÇ empno , ename , sal , comm °ªÀ» Ãâ·ÂÇÏµÇ ¸¸¾à comm °ªÀÌ null ÀÌ ¾Æ´Ï¸é sal+comm °ªÀ» Ãâ·ÂÇÏ°í, comm °ªÀÌ null ÀÌ¸é sal*0 ÀÇ °ªÀ» Ãâ·ÂÇÏ¼¼¿ä.
+13. Professor í…Œì´ë¸”ì—ì„œ 201ë²ˆ í•™ê³¼ êµìˆ˜ë“¤ì˜ ì´ë¦„ê³¼ ê¸‰ì—¬, bonus,ì´ ì—°ë´‰ì„ ì¶œë ¥í•˜ì„¸ìš”.ë‹¨, ì—°ë´‰ì€(PAY*12+bonus)ë¡œ ê³„ì‚°í•˜ê³  bonusê°€ ì—†ëŠ” êµìˆ˜ëŠ” 0ìœ¼ë¡œ ê³„ì‚°í•˜ì„¸ìš”.
 
 
 
 
-15. EMP Å×ÀÌºí¿¡¼­ deptno°¡ 30¹øÀÎ »ç¿øµéÀ» Á¶È¸È÷¿© comm°ªÀÌ ÀÖÀ» °æ¿ì 'Exist'À» Ãâ·ÂÇÏ°í comm°ªÀÌ nullÀÏ °æ¿ì 'NULL'À» Ãâ·ÂÇÏ¼¼¿ä.
 
-
-
-16. professor Å×ÀÌºí¿¡¼­ ÇÐ°ú¹øÈ£¿Í ±³¼ö¸í, ÇÐ°ú¸íÀ» Ãâ·ÂÇÏµÇ deptno °¡ 101 ¹øÀÎ ±³¼ö¸¸ ÇÐ°ú¸íÀ» "Computer Engineering" À¸·Î Ãâ·ÂÇÏ°í, 101¹øÀÌ ¾Æ´Ñ ±³¼öµéÀº ÇÐ°ú¸í¿¡ ¾Æ¹«°Íµµ Ãâ·ÂÇÏÁö ¸¶¼¼¿ä.
-
-
-
-
-17. Professor Å×ÀÌºí¿¡¼­ deptno¿Í name°ú dnameÀ» Ãâ·ÂÇÏµÇ dname¿¡ ÇÐ°ú ¹øÈ£°¡ 101 ¹ø ÀÌ¸é ¡®Computer Engineering¡¯ , 102 ¹øÀÌ¸é 'Multimedia Engineering' , 103 ¹øÀÌ¸é 'Software Engineering' ³ª¸ÓÁö´Â 'ETC' ·Î Ãâ·ÂÇÏ¼¼¿ä.
+14. emp í…Œì´ë¸”ì—ì„œ deptno ê°€ 30ë²ˆ ì¸ ì‚¬ëžŒë“¤ì˜ empno , ename , sal , comm ê°’ì„ ì¶œë ¥í•˜ë˜ ë§Œì•½ comm ê°’ì´ null ì´ ì•„ë‹ˆë©´ sal+comm ê°’ì„ ì¶œë ¥í•˜ê³ , comm ê°’ì´ null ì´ë©´ sal*0 ì˜ ê°’ì„ ì¶œë ¥í•˜ì„¸ìš”.
 
 
 
 
-18. Student Å×ÀÌºíÀ» ÂüÁ¶ÇÏ¿© deptno1 ÀÌ 201 ¹øÀÎ ÇÐ»ýÀÇ ÀÌ¸§°ú ÀüÈ­¹øÈ£, Áö¿ª ¸íÀ» Ãâ·ÂÇÏ¼¼¿ä. ´Ü Áö¿ª¹øÈ£°¡ 02 ¸é "SEOUL", 031 ÀÌ¸é "GYEONGGI", 051 ÀÌ¸é "BUSAN", 052 ÀÌ¸é "ULSAN", 055 ÀÌ¸é "GYEONGNAM", ³ª¸ÓÁö´Â "ETC" ·Î Ç¥½ÃÇÏ¼¼¿ä.
+15. EMP í…Œì´ë¸”ì—ì„œ deptnoê°€ 30ë²ˆì¸ ì‚¬ì›ë“¤ì„ ì¡°íšŒížˆì—¬ commê°’ì´ ìžˆì„ ê²½ìš° 'Exist'ì„ ì¶œë ¥í•˜ê³  commê°’ì´ nullì¼ ê²½ìš° 'NULL'ì„ ì¶œë ¥í•˜ì„¸ìš”.
 
 
-19. Student Å×ÀÌºíÀÇ jumin ÄÃ·³À» ÂüÁ¶ÇÏ¿© ÇÐ»ýµéÀÇ ÀÌ¸§°ú ÅÂ¾î³­ ´Þ , ±×¸®°í ºÐ±â¸¦ Ãâ·ÂÇÏ¼¼¿ä. ÅÂ¾î³­ ´ÞÀÌ 01-03¿ù Àº 1/4, 04 ? 06¿ù Àº 2/4 , 07 ? 09 ¿ù Àº 3/4 , 10 ? 12 ¿ùÀº 4/4 ·Î Ãâ·ÂÇÏ¼¼¿ä.
+
+16. professor í…Œì´ë¸”ì—ì„œ í•™ê³¼ë²ˆí˜¸ì™€ êµìˆ˜ëª…, í•™ê³¼ëª…ì„ ì¶œë ¥í•˜ë˜ deptno ê°€ 101 ë²ˆì¸ êµìˆ˜ë§Œ í•™ê³¼ëª…ì„ "Computer Engineering" ìœ¼ë¡œ ì¶œë ¥í•˜ê³ , 101ë²ˆì´ ì•„ë‹Œ êµìˆ˜ë“¤ì€ í•™ê³¼ëª…ì— ì•„ë¬´ê²ƒë„ ì¶œë ¥í•˜ì§€ ë§ˆì„¸ìš”.
 
 
-20. emp Å×ÀÌºíÀ» Á¶È¸ÇÏ¿© empno , ename , sal , LEVEL(±Þ¿©µî±Þ)À» ¾Æ·¡¿Í °°ÀÌ Ãâ·ÂÇÏ¼¼¿ä. ´Ü ±Þ¿©µî±ÞÀº sal À» ±âÁØÀ¸·Î 1 - 1000 ÀÌ¸é Level 1 , 1001 - 2000 ÀÌ¸é Level 2 , 2001 - 3000 ÀÌ¸é Level 3 , 3001 - 4000 ÀÌ¸é Level 4 , 4001 º¸´Ù ¸¹À¸¸é Level 5 ·Î Ãâ·ÂÇÏ¼¼¿ä.
+
+
+17. Professor í…Œì´ë¸”ì—ì„œ deptnoì™€ nameê³¼ dnameì„ ì¶œë ¥í•˜ë˜ dnameì— í•™ê³¼ ë²ˆí˜¸ê°€ 101 ë²ˆ ì´ë©´ â€˜Computer Engineeringâ€™ , 102 ë²ˆì´ë©´ 'Multimedia Engineering' , 103 ë²ˆì´ë©´ 'Software Engineering' ë‚˜ë¨¸ì§€ëŠ” 'ETC' ë¡œ ì¶œë ¥í•˜ì„¸ìš”.
+
+
+
+
+18. Student í…Œì´ë¸”ì„ ì°¸ì¡°í•˜ì—¬ deptno1 ì´ 201 ë²ˆì¸ í•™ìƒì˜ ì´ë¦„ê³¼ ì „í™”ë²ˆí˜¸, ì§€ì—­ ëª…ì„ ì¶œë ¥í•˜ì„¸ìš”. ë‹¨ ì§€ì—­ë²ˆí˜¸ê°€ 02 ë©´ "SEOUL", 031 ì´ë©´ "GYEONGGI", 051 ì´ë©´ "BUSAN", 052 ì´ë©´ "ULSAN", 055 ì´ë©´ "GYEONGNAM", ë‚˜ë¨¸ì§€ëŠ” "ETC" ë¡œ í‘œì‹œí•˜ì„¸ìš”.
+
+
+19. Student í…Œì´ë¸”ì˜ jumin ì»¬ëŸ¼ì„ ì°¸ì¡°í•˜ì—¬ í•™ìƒë“¤ì˜ ì´ë¦„ê³¼ íƒœì–´ë‚œ ë‹¬ , ê·¸ë¦¬ê³  ë¶„ê¸°ë¥¼ ì¶œë ¥í•˜ì„¸ìš”. íƒœì–´ë‚œ ë‹¬ì´ 01-03ì›” ì€ 1/4, 04 ? 06ì›” ì€ 2/4 , 07 ? 09 ì›” ì€ 3/4 , 10 ? 12 ì›”ì€ 4/4 ë¡œ ì¶œë ¥í•˜ì„¸ìš”.
+
+
+20. emp í…Œì´ë¸”ì„ ì¡°íšŒí•˜ì—¬ empno , ename , sal , LEVEL(ê¸‰ì—¬ë“±ê¸‰)ì„ ì•„ëž˜ì™€ ê°™ì´ ì¶œë ¥í•˜ì„¸ìš”. ë‹¨ ê¸‰ì—¬ë“±ê¸‰ì€ sal ì„ ê¸°ì¤€ìœ¼ë¡œ 1 - 1000 ì´ë©´ Level 1 , 1001 - 2000 ì´ë©´ Level 2 , 2001 - 3000 ì´ë©´ Level 3 , 3001 - 4000 ì´ë©´ Level 4 , 4001 ë³´ë‹¤ ë§Žìœ¼ë©´ Level 5 ë¡œ ì¶œë ¥í•˜ì„¸ìš”.
