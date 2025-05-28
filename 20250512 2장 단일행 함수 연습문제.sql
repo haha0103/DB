@@ -18,7 +18,7 @@ replace replace replace
 
 6. student 테이블에서 전공1이 102번인 학생들의 이름과 전화번호, 전호번호에서 국번 부분만 '*'처리하여 출력하세요.
    단, 모든 국번은 3자리로 간주합니다. ** REPLACE 퀴즈 3 ** 
-   
+   select name, tel, replace(tel, substr(tel,5,3),'***') "replace" from student where deptno1 = 102;   
 
 
 7. student 테이블에서 deptno1이 101번인 학과 학생들의 이름과 전화번호와 전화번호에서 지역번호와 국번을 제외한 나머지 번호를 *로 표시해서 출력하세요. ** REPLACE 퀴즈 4 
