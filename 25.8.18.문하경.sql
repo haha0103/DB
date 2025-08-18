@@ -1,3 +1,4 @@
+--76P
 --count
 SELECT * from emp;
 SELECT COUNT(*), count(comm) from emp;
@@ -52,3 +53,4 @@ SELECT count(*) "TOTAL", count(decode(substr(tel,1,instr(tel,')')-1),'02',0)) "S
                          count(decode(substr(tel,1,instr(tel,')')-1),'053',0)) "DAEGU",
                          count(decode(substr(tel,1,instr(tel,')')-1),'055',0)) "GYEONGBAM"
 from student;
+
