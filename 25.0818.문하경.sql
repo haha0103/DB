@@ -13,16 +13,16 @@ SELECT * from emp;
 SELECT max(sal), min(sal) from emp;
 SELECT max(hiredate) "MAX", min(hiredate) "MiN" from emp;
 
---group by         ¡énull°ª Ä¡È¯
+--group by         â†“nullê°’ ì¹˜í™˜
 SELECT deptno, round(avg(nvl(sal,0)),2) "AVG" from emp 
 group by deptno;
 
 SELECT deptno, job, avg(nvl(sal,0)) "AVG_SAL" from emp group by deptno, job ORDER by deptno;
 
---ÁÖÀÇ »çÇ×: selectÀı¿¡ »ç¿ëµÈ ±×·ìÇÔ¼ö ÀÌ¿ÜÀÇ ÄÃ·³ÀÌ³ª Ç¥Çö½ÄÀº ¹İµå½Ã group by Àı¿¡ »ç¿ëµÇ¾î¾ß ÇÕ´Ï´Ù ¾Æ´Ï¸é ¿¡·¯»ı±è, º°Äª¾ÈµÊ
+--ì£¼ì˜ ì‚¬í•­: selectì ˆì— ì‚¬ìš©ëœ ê·¸ë£¹í•¨ìˆ˜ ì´ì™¸ì˜ ì»¬ëŸ¼ì´ë‚˜ í‘œí˜„ì‹ì€ ë°˜ë“œì‹œ group by ì ˆì— ì‚¬ìš©ë˜ì–´ì•¼ í•©ë‹ˆë‹¤ ì•„ë‹ˆë©´ ì—ëŸ¬ìƒê¹€, ë³„ì¹­ì•ˆë¨
 
 
---±×·ì ÇÔ¼ö ¿¬½À¹®Á¦
+--ê·¸ë£¹ í•¨ìˆ˜ ì—°ìŠµë¬¸ì œ
 --1.
 SELECT max(sal+nvl(comm,0)) "MAX", min(sal+nvl(comm,0)) "MIN", round(avg(sal+nvl(comm,0)),1) "AVG" from emp;
 
