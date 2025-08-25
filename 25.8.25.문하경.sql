@@ -1,8 +1,8 @@
---7) student Å×ÀÌºíÀÇTel ÄÃ·³À» »ç¿ëÇÏ¿© ¾Æ·¡¿Í °°ÀÌ Áö¿ªº° ÀÎ¿ø¼ö¿Í ÀüÃ¼´ëºñ Â÷ÁöÇÏ´Â ºñÀ²À» Ãâ·ÂÇÏ¼¼¿ä.
+--7) student í…Œì´ë¸”ì˜Tel ì»¬ëŸ¼ì„ ì‚¬ìš©í•˜ì—¬ ì•„ëž˜ì™€ ê°™ì´ ì§€ì—­ë³„ ì¸ì›ìˆ˜ì™€ ì „ì²´ëŒ€ë¹„ ì°¨ì§€í•˜ëŠ” ë¹„ìœ¨ì„ ì¶œë ¥í•˜ì„¸ìš”.
 SELECT * from student;
---                       ¡é   ºñÀ² ±¸ÇÏ´Â ½Ä  ¡é(³»°¹¼ö/ÀüÃ¼°¹¼ö*100)
+--                       â†“   ë¹„ìœ¨ êµ¬í•˜ëŠ” ì‹  â†“(ë‚´ê°¯ìˆ˜/ì „ì²´ê°¯ìˆ˜*100)
 SELECT count(*)||'EA('||count(*)/count(*)*100||'%)' "TOTAL",
---         ÀÌ°Ô if¿´À½?
+--         ì´ê²Œ ifì˜€ìŒ?
        count(decode(substr(tel,1,instr(tel,')')-1),'02',0))||'EA('||
        count(decode(substr(tel,1,instr(tel,')')-1),'02',0))/count(*)*100||'%)' "SEOUL",
        count(decode(substr(tel,1,instr(tel,')')-1),'031',0))||'EA('||
@@ -17,35 +17,50 @@ SELECT count(*)||'EA('||count(*)/count(*)*100||'%)' "TOTAL",
        count(decode(substr(tel,1,instr(tel,')')-1),'055',0))/count(*)*100||'%)' "GYEONGNAM"
 from student;
 
---8) emp Å×ÀÌºíÀ» »ç¿ëÇÏ¿© ¾Æ·¡¿Í °°ÀÌ ºÎ¼­º°·Î ±Þ¿© ´©Àû ÇÕ°è°¡ ³ª¿Àµµ·Ï Ãâ·ÂÇÏ¼¼¿ä.( ´Ü ºÎ¼­ ¹øÈ£·Î ¿À¸§Â÷¼ø Ãâ·ÂÇÏ¼¼¿ä. )
+--8) emp í…Œì´ë¸”ì„ ì‚¬ìš©í•˜ì—¬ ì•„ëž˜ì™€ ê°™ì´ ë¶€ì„œë³„ë¡œ ê¸‰ì—¬ ëˆ„ì  í•©ê³„ê°€ ë‚˜ì˜¤ë„ë¡ ì¶œë ¥í•˜ì„¸ìš”.( ë‹¨ ë¶€ì„œ ë²ˆí˜¸ë¡œ ì˜¤ë¦„ì°¨ìˆœ ì¶œë ¥í•˜ì„¸ìš”. )
 SELECT * from emp; 
---                                       ¡é±×·ìº°·Î             ´©ÀûÇÕ°è
+--                                       â†“ê·¸ë£¹ë³„ë¡œ             ëˆ„ì í•©ê³„
 SELECT deptno, ename, sal, sum(sal) over(PARTITION BY deptno ORDER BY sal) "TOTAL" from emp;
 
---9) emp Å×ÀÌºíÀ» »ç¿ëÇÏ¿© ¾Æ·¡¿Í °°ÀÌ °¢ »ç¿øÀÇ ±Þ¿©¾×ÀÌ ÀüÃ¼ Á÷¿ø ±Þ¿©ÃÑ¾×¿¡¼­ ¸î%ÀÇ ºñÀ²À» Â÷ÁöÇÏ´ÂÁö Ãâ·ÂÇÏ¼¼¿ä. 
---´Ü, ±Þ¿© ºñÁßÀÌ ³ôÀº »ç¶÷ÀÌ ¸ÕÀú Ãâ·ÂµÇµµ·ÏÇÏ¼¼¿ä.
+--9) emp í…Œì´ë¸”ì„ ì‚¬ìš©í•˜ì—¬ ì•„ëž˜ì™€ ê°™ì´ ê° ì‚¬ì›ì˜ ê¸‰ì—¬ì•¡ì´ ì „ì²´ ì§ì› ê¸‰ì—¬ì´ì•¡ì—ì„œ ëª‡%ì˜ ë¹„ìœ¨ì„ ì°¨ì§€í•˜ëŠ”ì§€ ì¶œë ¥í•˜ì„¸ìš”. 
+--ë‹¨, ê¸‰ì—¬ ë¹„ì¤‘ì´ ë†’ì€ ì‚¬ëžŒì´ ë¨¼ì € ì¶œë ¥ë˜ë„ë¡í•˜ì„¸ìš”.
 SELECT deptno, ename, sal, sum(sal) OVER() "TOTAL_SAL", round(sal/sum(sal)over()*100,2) "%"
 from emp ORDER by 5 DESC;
---                                                            ¡éºñÀ² ±¸ÇÏ´Â ÇÔ¼ö
+--                                                            â†“ë¹„ìœ¨ êµ¬í•˜ëŠ” í•¨ìˆ˜
 SELECT deptno, ename, sal, sum(sal) OVER() "TOTAL_SAL", round(ratio_to_report(sal)over()*100,2) "%"
 from emp ORDER by 5 DESC;
 
---10) emp Å×ÀÌºíÀ» Á¶È¸ÇÏ¿© ¾Æ·¡¿Í °°ÀÌ °¢ Á÷¿øµéÀÇ ±Þ¿©°¡ ÇØ´ç ºÎ¼­ ÇÕ°è±Ý¾×¿¡¼­ ¸î%ÀÇ ºñÁßÀ» Â÷ÁöÇÏ´ÂÁö¸¦ Ãâ·ÂÇÏ¼¼¿ä. 
---´Ü, ºÎ¼­¹øÈ£¸¦ ±âÁØÀ¸·Î ¿À¸§Â÷¼øÀ¸·Î Ãâ·ÂÇÏ¼¼¿ä.
+--10) emp í…Œì´ë¸”ì„ ì¡°íšŒí•˜ì—¬ ì•„ëž˜ì™€ ê°™ì´ ê° ì§ì›ë“¤ì˜ ê¸‰ì—¬ê°€ í•´ë‹¹ ë¶€ì„œ í•©ê³„ê¸ˆì•¡ì—ì„œ ëª‡%ì˜ ë¹„ì¤‘ì„ ì°¨ì§€í•˜ëŠ”ì§€ë¥¼ ì¶œë ¥í•˜ì„¸ìš”. 
+--ë‹¨, ë¶€ì„œë²ˆí˜¸ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì¶œë ¥í•˜ì„¸ìš”.
 SELECT deptno, ename, sal, sum(sal) OVER(PARTITION by deptno) "SUM_DEPT", 
 round(ratio_to_report(sal)over(PARTITION by deptno)*100,2) "%"
 from emp ORDER by 1,2 DESC;
 
---11) loan Å×ÀÌºíÀ» »ç¿ëÇÏ¿©1 000¹ø ÁöÁ¡ÀÇ ´ëÃâ ³»¿ªÀ» Ãâ·ÂÇÏµÇ ´ëÃâÀÏÀÚ, ´ëÃâÁ¾¸ñÄÚµå, ´ëÃâ°Ç¼ö, ´ëÃâÃÑ¾×, ´©Àû ´ëÃâ±Ý¾×À» ¾Æ·¡¿Í °°ÀÌ Ãâ·ÂÇÏ¼¼¿ä.
+--11) loan í…Œì´ë¸”ì„ ì‚¬ìš©í•˜ì—¬1 000ë²ˆ ì§€ì ì˜ ëŒ€ì¶œ ë‚´ì—­ì„ ì¶œë ¥í•˜ë˜ ëŒ€ì¶œì¼ìž, ëŒ€ì¶œì¢…ëª©ì½”ë“œ, ëŒ€ì¶œê±´ìˆ˜, ëŒ€ì¶œì´ì•¡, ëˆ„ì  ëŒ€ì¶œê¸ˆì•¡ì„ ì•„ëž˜ì™€ ê°™ì´ ì¶œë ¥í•˜ì„¸ìš”.
 SELECT * from loan;
-SELECT l_date "´ëÃâÀÏÀÚ", l_code "´ëÃâÁ¾¸ñÄÚµå", l_qty "´ëÃâ°Ç¼ö", l_total "´ëÃâÃÑ¾×",
-sum(l_total) over(order by l_date) "´©Àû´ëÃâ±Ý¾×" from loan where l_store=1000;
+SELECT l_date "ëŒ€ì¶œì¼ìž", l_code "ëŒ€ì¶œì¢…ëª©ì½”ë“œ", l_qty "ëŒ€ì¶œê±´ìˆ˜", l_total "ëŒ€ì¶œì´ì•¡",
+sum(l_total) over(order by l_date) "ëˆ„ì ëŒ€ì¶œê¸ˆì•¡" from loan where l_store=1000;
 
---12)loan Å×ÀÌºíÀ» »ç¿ëÇÏ¿© ÀüÃ¼ ÁöÁ¡ÀÇ ´ëÃâÁ¾¸ñÄÚµå, ´ëÃâÁöÁ¡, ´ëÃâÀÏÀÚ, ´ëÃâ°Ç¼ö, ´ëÃâ¾×À» ´ëÃâÄÚµå¿Í ´ëÃâÁöÁ¡º°·Î ´©Àû ÇÕ°è¸¦ ±¸ÇÏ¼¼¿ä.
-SELECT l_code "´ëÃâÁ¾¸ñÄÚµå", l_store "´ëÃâÁöÁ¡", l_date "´ëÃâÀÏÀÚ", l_qty "´ëÃâ°Ç¼ö", l_total "´ëÃâ¾×",
-sum(l_total) over(PARTITION BY l_code, l_store order BY l_date) "´©Àû´ëÃâ±Ý¾×" from loan;
+--12)loan í…Œì´ë¸”ì„ ì‚¬ìš©í•˜ì—¬ ì „ì²´ ì§€ì ì˜ ëŒ€ì¶œì¢…ëª©ì½”ë“œ, ëŒ€ì¶œì§€ì , ëŒ€ì¶œì¼ìž, ëŒ€ì¶œê±´ìˆ˜, ëŒ€ì¶œì•¡ì„ ëŒ€ì¶œì½”ë“œì™€ ëŒ€ì¶œì§€ì ë³„ë¡œ ëˆ„ì  í•©ê³„ë¥¼ êµ¬í•˜ì„¸ìš”.
+SELECT l_code "ëŒ€ì¶œì¢…ëª©ì½”ë“œ", l_store "ëŒ€ì¶œì§€ì ", l_date "ëŒ€ì¶œì¼ìž", l_qty "ëŒ€ì¶œê±´ìˆ˜", l_total "ëŒ€ì¶œì•¡",
+sum(l_total) over(PARTITION BY l_code, l_store order BY l_date) "ëˆ„ì ëŒ€ì¶œê¸ˆì•¡" from loan;
 
---13) loan Å×ÀÌºíÀ» Á¶È¸ÇÏ¿© 1000¹ø ÁöÁ¡ÀÇ ´ëÃâ³»¿ªÀ» ´ëÃâÄÚµåº°·Î ÇÕÃÄ¼­ ´ëÃâÀÏÀÚ, ´ëÃâ±¸ºÐÄÚµå, ´ëÃâ°Ç¼ö, ´ëÃâÃÑ¾×, ÄÚµåº° ´©Àû ´ëÃâ±Ý¾×À» ¾Æ·¡¿Í °°ÀÌ Ãâ·ÂÇÏ¼¼¿ä.
-SELECT  l_date "´ëÃâÀÏÀÚ", l_code "´ëÃâÁ¾¸ñÄÚµå", l_qty "´ëÃâ°Ç¼ö", l_total "´ëÃâÃÑ¾×",
- sum(l_total) over(PARTITION BY l_code order BY l_total) "´©Àû´ëÃâ±Ý¾×"
+--13) loan í…Œì´ë¸”ì„ ì¡°íšŒí•˜ì—¬ 1000ë²ˆ ì§€ì ì˜ ëŒ€ì¶œë‚´ì—­ì„ ëŒ€ì¶œì½”ë“œë³„ë¡œ í•©ì³ì„œ ëŒ€ì¶œì¼ìž, ëŒ€ì¶œêµ¬ë¶„ì½”ë“œ, ëŒ€ì¶œê±´ìˆ˜, ëŒ€ì¶œì´ì•¡, ì½”ë“œë³„ ëˆ„ì  ëŒ€ì¶œê¸ˆì•¡ì„ ì•„ëž˜ì™€ ê°™ì´ ì¶œë ¥í•˜ì„¸ìš”.
+SELECT  l_date "ëŒ€ì¶œì¼ìž", l_code "ëŒ€ì¶œì¢…ëª©ì½”ë“œ", l_qty "ëŒ€ì¶œê±´ìˆ˜", l_total "ëŒ€ì¶œì´ì•¡",
+ sum(l_total) over(PARTITION BY l_code order BY l_total) "ëˆ„ì ëŒ€ì¶œê¸ˆì•¡"
  from loan where l_store=1000;
+
+--106P
+--14) professor í…Œì´ë¸”ì—ì„œ ê° êµìˆ˜ë“¤ì˜ ê¸‰ì—¬ë¥¼ êµ¬í•˜ê³  ê° êµìˆ˜ì˜ ê¸‰ì—¬ì•¡ì´ ì „ì²´ êµìˆ˜ì˜ ê¸‰ì—¬ í•©ê³„ì—ì„œ ì°¨ì§€í•˜ëŠ” ë¹„ìœ¨ì„ ì¶œë ¥í•˜ì„¸ìš”.
+SELECT * from professor;
+SELECT deptno, name, pay, sum(pay) over() "TOTAL_PAY", Round(pay/sum(pay) over()*100,2) "PATIO%" from professor ORDER by 5 DESC;
+--                                                           â†•
+SELECT deptno, name, pay, sum(pay) over() "TOTAL_PAY", Round(ratio_to_report(pay) over()*100,2) "PATIO%" from professor ORDER by 5 DESC;
+--                                                           ratio_to_report
+
+--15) professor í…Œì´ë¸”ì„ ì¡°íšŒí•˜ì—¬ í•™ê³¼ë²ˆí˜¸, êµìˆ˜ëª…, ê¸‰ì—¬, í•™ê³¼ë³„ ê¸‰ì—¬ í•©ê³„ë¥¼ êµ¬í•˜ê³  ê° êµìˆ˜ì˜ ê¸‰ì—¬ê°€ í•´ë‹¹ í•™ê³¼ë³„ ê¸‰ì—¬ í•©ê³„ì—ì„œ ì°¨ì§€í•˜ëŠ” ë¹„ìœ¨ì„ ì¶œë ¥í•˜ì„¸ìš”.
+SELECT deptno, name, pay, sum(pay) over(PARTITION BY deptno) "TOTAL_DEPTNO", 
+round(pay/sum(pay) over(PARTITION BY deptno)*100,2) "RATIO(%)" from professor ORDER by 1;
+--    â†•
+SELECT deptno, name, pay, sum(pay) over(PARTITION BY deptno) "TOTAL_DEPTNO", 
+round(ratio_to_report(pay) over(PARTITION BY deptno)*100,2) "RATIO(%)" from professor ORDER by 1;
