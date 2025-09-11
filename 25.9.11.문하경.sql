@@ -1,30 +1,30 @@
--- Join: µÎ°³ÀÇ Å×ÀÌºí¸¦ ÇÕÃÄ¼­ »õ·Î¿î°Å¸¦ ¸¸µç´Ù(joinÀº Å×ÀÌºíÀ» µÎ°³¸¦ ¾´´Ù°í???)
---                           ¡é Å×ÀÌºí ÀÌ¸§ÀÌ a·ÎÇÑ´Ù    
+-- Join: ë‘ê°œì˜ í…Œì´ë¸”ë¥¼ í•©ì³ì„œ ìƒˆë¡œìš´ê±°ë¥¼ ë§Œë“ ë‹¤(joinì€ í…Œì´ë¸”ì„ ë‘ê°œë¥¼ ì“´ë‹¤ê³ ???)
+--                           â†“ í…Œì´ë¸” ì´ë¦„ì´ aë¡œí•œë‹¤    
 --SELECT a.col1, b.col1 from table a, table b where a.col2 = b.col2;
 
--- µî°¡ join (=)
---¿¹ 1)
+-- ë“±ê°€ join (=)
+--ì˜ˆ 1)
 SELECT * from emp;
 SELECT * from dept;
 SELECT empno, ename, dname from emp, dept;
---                          ¡éemp¶û deptµÑ´Ù ÀÖ¾î¼­ ¿À·ù°¡ ³ª¿ä
+--                          â†“empëž‘ deptë‘˜ë‹¤ ìžˆì–´ì„œ ì˜¤ë¥˜ê°€ ë‚˜ìš”
 SELECT empno, ename, dname, deptno from emp, dept where emp.deptno = dept.deptno;
 SELECT empno, ename, dname, e.deptno from emp e, dept d where e.deptno = d.deptno;
 
---¿¹ 2)
+--ì˜ˆ 2)
 SELECT * from student;
 SELECT * from professor;
 SELECT s.name "STU_NAME", p.name "PROF_NAME", s.profno, p.profno from student s, professor p where s.profno = p.profno;
 
---¿¹ 3)
+--ì˜ˆ 3)
 SELECT * from student;
 SELECT * from department;
 SELECT * from professor;
 SELECT s.name "STU_NAME", d.dname "DEPT_NAME",p.name "PROF_NAME" 
 from student s, professor p, department d where s.profno = p.profno and d.deptno = s.deptno1;
 
--- ºñµî°¡ join (>= <= > <)
--- ¿¹ 1)
+-- ë¹„ë“±ê°€ join (>= <= > <)
+-- ì˜ˆ 1)
 SELECT * from customer;
 SELECT * from gift;
 SELECT c.gname "CUST_NAME", point, g.gname "GIFT_NAME" 
