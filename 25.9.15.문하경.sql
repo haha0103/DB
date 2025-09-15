@@ -22,12 +22,37 @@ where s.profno = p.profno(+);
 -- 예 2)
 SELECT s.name "STU_NAME", p.name "PROF_NAME" from student s, professor p 
 where s.profno(+) = p.profno;
--- =
-SELECT s.name "STU_NAME", p.name "PROF_NAME" from professor p LEFT OUTER JOIN student s
-on s.profno = p.profno;
 
+-- 예 3)
 SELECT s.name "STU_NAME", p.name "PROF_NAME" from student s, professor p 
 where s.profno(+) = p.profno
 union -- 두개의 테이블을 합치고 중복된 얘들은 제외(union all: 싹다 그냥 다 전부 중복된 것들도 전부전부)
 SELECT s.name "STU_NAME", p.name "PROF_NAME" from student s, professor p 
 where s.profno = p.profno(+);
+
+-- join 연산자: table A join tlable B on 조건
+SELECT s.name "STU_NAME", p.name "PROF_NAME" 
+from student s join professor p on s.profno = p.profno;
+
+SELECT s.name "STU_NAME", p.name "PROF_NAME" 
+from student s LEFT OUTER JOIN professor p on s.profno = p.profno;
+
+SELECT s.name "STU_NAME", p.name "PROF_NAME" 
+from student s RIGHT OUTER JOIN professor p on s.profno = p.profno;
+--  =
+SELECT s.name "STU_NAME", p.name "PROF_NAME" 
+from professor p LEFT OUTER JOIN student s on s.profno = p.profno;
+
+-- full outer join
+SELECT s.name "STU_NAME", p.name "PROF_NAME" 
+from student s FULL OUTER JOIN professor p on s.profno = p.profno;
+
+-- SELF JOIN
+SELECT * from emp;
+SELECT empno, ename, mgr from emp;
+SELECT e1.ename "ENAME", e1.empno, e2.mgr, e2.ename "MGR_ENAME"
+from emp e1, emp e2 where e1.empno = e2.mgr;
+
+
+
+
