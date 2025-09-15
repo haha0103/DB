@@ -1,5 +1,5 @@
--- ºñµî°¡ JOin
--- ¿¹ 2)
+-- ë¹„ë“±ê°€ JOin
+-- ì˜ˆ 2)
 SELECT * from student;
 SELECT * from score;
 SELECT * from hakjum;
@@ -10,27 +10,27 @@ where s.studno = sc.studno and sc.total >= h.min_point and sc.total <= h.max_poi
 SELECT s.name "STU_NAME", sc.total "SCORE", h.grade "CRE" from student s, score sc, hakjum h
 where s.studno = sc.studno and sc.total between h.min_point and h.max_point;
 
--- OUTER JOIN(¾Æ¿ìÅÍ Á¶ÀÎ) vs INNER JOIN(ÀÌ³Ê Á¶ÀÎ)
--- ¿¹ 1)
+-- OUTER JOIN(ì•„ìš°í„° ì¡°ì¸) vs INNER JOIN(ì´ë„ˆ ì¡°ì¸)
+-- ì˜ˆ 1)
 SELECT * from student;
 SELECT * from professor;
 
 SELECT s.name "STU_NAME", p.name "PROF_NAME" from student s, professor p 
 where s.profno = p.profno(+);
---                        ¡èouter join ¾Æ´Ñ °Íµµ ´Ù Ãâ·Â (ÀÖ´Â °Í¸¸ Ãâ·ÂÇÏ´Â°Å´Â inner join)  
+--                        â†‘outer join ì•„ë‹Œ ê²ƒë„ ë‹¤ ì¶œë ¥ (ìžˆëŠ” ê²ƒë§Œ ì¶œë ¥í•˜ëŠ”ê±°ëŠ” inner join)  
  
--- ¿¹ 2)
+-- ì˜ˆ 2)
 SELECT s.name "STU_NAME", p.name "PROF_NAME" from student s, professor p 
 where s.profno(+) = p.profno;
 
--- ¿¹ 3)
+-- ì˜ˆ 3)
 SELECT s.name "STU_NAME", p.name "PROF_NAME" from student s, professor p 
 where s.profno(+) = p.profno
-union -- µÎ°³ÀÇ Å×ÀÌºíÀ» ÇÕÄ¡°í Áßº¹µÈ ¾êµéÀº Á¦¿Ü(union all: ½Ï´Ù ±×³É ´Ù ÀüºÎ Áßº¹µÈ °Íµéµµ ÀüºÎÀüºÎ)
+union -- ë‘ê°œì˜ í…Œì´ë¸”ì„ í•©ì¹˜ê³  ì¤‘ë³µëœ ì–˜ë“¤ì€ ì œì™¸(union all: ì‹¹ë‹¤ ê·¸ëƒ¥ ë‹¤ ì „ë¶€ ì¤‘ë³µëœ ê²ƒë“¤ë„ ì „ë¶€ì „ë¶€)
 SELECT s.name "STU_NAME", p.name "PROF_NAME" from student s, professor p 
 where s.profno = p.profno(+);
 
--- join ¿¬»êÀÚ: table A join tlable B on Á¶°Ç
+-- join ì—°ì‚°ìž: table A join tlable B on ì¡°ê±´
 SELECT s.name "STU_NAME", p.name "PROF_NAME" 
 from student s join professor p on s.profno = p.profno;
 
@@ -52,7 +52,3 @@ SELECT * from emp;
 SELECT empno, ename, mgr from emp;
 SELECT e1.ename "ENAME", e1.empno, e2.mgr, e2.ename "MGR_ENAME"
 from emp e1, emp e2 where e1.empno = e2.mgr;
-
-
-
-
