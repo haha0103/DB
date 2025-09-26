@@ -1,73 +1,76 @@
---4Àå JOIN ¿¹Á¦¹®Á¦
---µî°¡Á¶ÀÎ
---¿¹ 1) emp Å×ÀÌºí°ú dept Å×ÀÌºíÀ» Á¶È¸ÇÏ¿© ¾Æ·¡¿Í °°ÀÌ Ãâ·ÂÇÏ¼¼¿ä.
+--4ìž¥ JOIN ì˜ˆì œë¬¸ì œ
+--ë“±ê°€ì¡°ì¸
+--ì˜ˆ 1) emp í…Œì´ë¸”ê³¼ dept í…Œì´ë¸”ì„ ì¡°íšŒí•˜ì—¬ ì•„ëž˜ì™€ ê°™ì´ ì¶œë ¥í•˜ì„¸ìš”.
 SELECT empno, ename, dname from emp e, dept d where e.deptno=d.deptno;
 
---¿¹ 2) ÇÐ»ý Å×ÀÌºí (student) °ú ±³¼ö Å×ÀÌºí (professor) À» join ÇÏ¿© ÇÐ»ýÀÇ ÀÌ¸§°ú Áöµµ±³¼ö¹øÈ£, Áöµµ±³¼ö ÀÌ¸§À» Ãâ·ÂÇÏ¼¼¿ä.
+--ì˜ˆ 2) í•™ìƒ í…Œì´ë¸” (student) ê³¼ êµìˆ˜ í…Œì´ë¸” (professor) ì„ join í•˜ì—¬ í•™ìƒì˜ ì´ë¦„ê³¼ ì§€ë„êµìˆ˜ë²ˆí˜¸, ì§€ë„êµìˆ˜ ì´ë¦„ì„ ì¶œë ¥í•˜ì„¸ìš”.
 SELECT * from student;
 SELECT * from professor;
 SELECT s.name "STU_NAME", p.name "PROF_NAME" from student s, professor p where s.profno = p.profno;
 
---¿¹ 3) ÇÐ»ý Å×ÀÌºí(student)°ú ÇÐ°ú Å×ÀÌºí(department) , ±³¼ö Å×ÀÌºí(professor) À» JoinÇÏ¿© ÇÐ»ýÀÇ ÀÌ¸§°ú ÇÐ»ýÀÇ ÇÐ°úÀÌ¸§, ÇÐ»ýÀÇ Áöµµ±³¼ö ÀÌ¸§À» Ãâ·ÂÇÏ¼¼¿ä.
+--ì˜ˆ 3) í•™ìƒ í…Œì´ë¸”(student)ê³¼ í•™ê³¼ í…Œì´ë¸”(department) , êµìˆ˜ í…Œì´ë¸”(professor) ì„ Joiní•˜ì—¬ í•™ìƒì˜ ì´ë¦„ê³¼ í•™ìƒì˜ í•™ê³¼ì´ë¦„, í•™ìƒì˜ ì§€ë„êµìˆ˜ ì´ë¦„ì„ ì¶œë ¥í•˜ì„¸ìš”.
 SELECT * from department;
 SELECT s.name "STU_NAME", d.dname "DEPT_NAME", p.name "PROF_NAME" from student s, department d, professor p
 where s.profno = p.profno and d.deptno = s.deptno1;
 
---ºñµî°¡Á¶ÀÎ
---¿¹ 1) Custormer Å×ÀÌºí°ú gift Å×ÀÌºíÀ» JoinÇÏ¿© °í°´º°·Î ¸¶ÀÏ¸®Áö Æ÷ÀÎÆ®¸¦ Á¶È¸ÇÑ ÈÄ ÇØ´ç ¸¶ÀÏ¸®Áö Á¡¼ö·Î ¹ÞÀ» ¼ö ÀÖ´Â »óÇ°À» Á¶È¸ÇÏ¿© °í°´ÀÇ ÀÌ¸§°ú ¹ÞÀ» ¼ö ÀÖ´Â »óÇ° ¸íÀ» ¾Æ·¡¿Í °°ÀÌ Ãâ·ÂÇÏ¼¼¿ä.
+--ë¹„ë“±ê°€ì¡°ì¸
+--ì˜ˆ 1) Custormer í…Œì´ë¸”ê³¼ gift í…Œì´ë¸”ì„ Joiní•˜ì—¬ ê³ ê°ë³„ë¡œ ë§ˆì¼ë¦¬ì§€ í¬ì¸íŠ¸ë¥¼ ì¡°íšŒí•œ í›„ í•´ë‹¹ ë§ˆì¼ë¦¬ì§€ ì ìˆ˜ë¡œ ë°›ì„ ìˆ˜ ìžˆëŠ” ìƒí’ˆì„ ì¡°íšŒí•˜ì—¬ ê³ ê°ì˜ ì´ë¦„ê³¼ ë°›ì„ ìˆ˜ ìžˆëŠ” ìƒí’ˆ ëª…ì„ ì•„ëž˜ì™€ ê°™ì´ ì¶œë ¥í•˜ì„¸ìš”.
 SELECT * from customer;
 SELECT * from gift;
 SELECT c.gname "CUST_NAME", c.point "POINT", g.gname "GIFT_NAME" from customer c, gift g 
 where c.point >= g.g_start and c.point <= g.g_end;
 
---¿¹ 2) Student Å×ÀÌºí°ú score Å×ÀÌºí , hakjum Å×ÀÌºíÀ» Á¶È¸ÇÏ¿© ÇÐ»ýµéÀÇ ÀÌ¸§°ú Á¡¼ö¿Í ÇÐÁ¡À» Ãâ·ÂÇÏ¼¼¿ä.
+--ì˜ˆ 2) Student í…Œì´ë¸”ê³¼ score í…Œì´ë¸” , hakjum í…Œì´ë¸”ì„ ì¡°íšŒí•˜ì—¬ í•™ìƒë“¤ì˜ ì´ë¦„ê³¼ ì ìˆ˜ì™€ í•™ì ì„ ì¶œë ¥í•˜ì„¸ìš”.
 SELECT * from student;
 SELECT * from score;
 SELECT * from hakjum;
 SELECT s.name "STU_NAME", sc.total "SCORE", h.grade "CRE" from student s, score sc, hakjum h
 where s.studno = sc.studno and sc.total >= h.min_point and sc.total <= h.max_point;
 --outer join
---¿¹ 1 ) Student Å×ÀÌºí°ú Professor Å×ÀÌºíÀ» JoinÇÏ¿© ÇÐ»ýÀÌ¸§°ú Áöµµ±³¼ö ÀÌ¸§À» Ãâ·ÂÇÏ¼¼¿ä.
---´Ü Áöµµ±³¼ö°¡ °áÁ¤µÇÁö ¾ÊÀº ÇÐ»ýÀÇ ¸í´Üµµ ÇÔ²² Ãâ·ÂÇÏ¼¼¿ä.
+--ì˜ˆ 1 ) Student í…Œì´ë¸”ê³¼ Professor í…Œì´ë¸”ì„ Joiní•˜ì—¬ í•™ìƒì´ë¦„ê³¼ ì§€ë„êµìˆ˜ ì´ë¦„ì„ ì¶œë ¥í•˜ì„¸ìš”.
+--ë‹¨ ì§€ë„êµìˆ˜ê°€ ê²°ì •ë˜ì§€ ì•Šì€ í•™ìƒì˜ ëª…ë‹¨ë„ í•¨ê»˜ ì¶œë ¥í•˜ì„¸ìš”.
 SELECT s.name "STU_NAME",  p.name "PROF_NAME" from student s, professor p where s.profno = p.profno(+);
 
---¿¹ 2 ) Student Å×ÀÌºí°ú Professor Å×ÀÌºíÀ» JoinÇÏ¿© ÇÐ»ýÀÌ¸§°ú Áöµµ±³¼ö ÀÌ¸§À» Ãâ·ÂÇÏ¼¼¿ä.
---´Ü ÁöµµÇÐ»ýÀÌ °áÁ¤µÇÁö ¾ÊÀº ±³¼öÀÇ ¸í´Üµµ ÇÔ²² Ãâ·ÂÇÏ¼¼¿ä.
+--ì˜ˆ 2 ) Student í…Œì´ë¸”ê³¼ Professor í…Œì´ë¸”ì„ Joiní•˜ì—¬ í•™ìƒì´ë¦„ê³¼ ì§€ë„êµìˆ˜ ì´ë¦„ì„ ì¶œë ¥í•˜ì„¸ìš”.
+--ë‹¨ ì§€ë„í•™ìƒì´ ê²°ì •ë˜ì§€ ì•Šì€ êµìˆ˜ì˜ ëª…ë‹¨ë„ í•¨ê»˜ ì¶œë ¥í•˜ì„¸ìš”.
 SELECT s.name "STU_NAME",  p.name "PROF_NAME" from student s, professor p where s.profno(+) = p.profno;
 
---¿¹ 3 ) Student Å×ÀÌºí°ú Professor Å×ÀÌºíÀ» JoinÇÏ¿© ÇÐ»ýÀÌ¸§°ú Áöµµ±³¼ö ÀÌ¸§À» Ãâ·ÂÇÏ¼¼¿ä.
---´Ü ÁöµµÇÐ»ýÀÌ °áÁ¤ ¾È µÈ ±³¼ö ¸í´Ü°ú Áöµµ ±³¼ö°¡ °áÁ¤ ¾ÈµÈ ÇÐ»ý ¸í´ÜÀ» ÇÑ²¨¹ø¿¡ Ãâ·ÂÇÏ¼¼¿ä.
+--ì˜ˆ 3 ) Student í…Œì´ë¸”ê³¼ Professor í…Œì´ë¸”ì„ Joiní•˜ì—¬ í•™ìƒì´ë¦„ê³¼ ì§€ë„êµìˆ˜ ì´ë¦„ì„ ì¶œë ¥í•˜ì„¸ìš”.
+--ë‹¨ ì§€ë„í•™ìƒì´ ê²°ì • ì•ˆ ëœ êµìˆ˜ ëª…ë‹¨ê³¼ ì§€ë„ êµìˆ˜ê°€ ê²°ì • ì•ˆëœ í•™ìƒ ëª…ë‹¨ì„ í•œêº¼ë²ˆì— ì¶œë ¥í•˜ì„¸ìš”.
 SELECT s.name "STU_NAME",  p.name "PROF_NAME" from student s FULL OUTER JOIN professor p on s.profno = p.profno;
 
---4Àå JOIN ¿¬½À¹®Á¦
---1. ÇÐ»ý Å×ÀÌºí (student) °ú ÇÐ°ú Å×ÀÌºí (department) Å×ÀÌºíÀ» »ç¿ëÇÏ¿© ÇÐ»ýÀÌ¸§, 1 Àü°øÇÐ°ú¹øÈ£(deptno1) , 1Àü°ø ÇÐ°ú ÀÌ¸§À» Ãâ·ÂÇÏ¼¼¿ä.
+--4ìž¥ JOIN ì—°ìŠµë¬¸ì œ
+--1. í•™ìƒ í…Œì´ë¸” (student) ê³¼ í•™ê³¼ í…Œì´ë¸” (department) í…Œì´ë¸”ì„ ì‚¬ìš©í•˜ì—¬ í•™ìƒì´ë¦„, 1 ì „ê³µí•™ê³¼ë²ˆí˜¸(deptno1) , 1ì „ê³µ í•™ê³¼ ì´ë¦„ì„ ì¶œë ¥í•˜ì„¸ìš”.
 SELECT * FROM student;
 SELECT * from department;
 SELECT s.name "STU_NAME", s.DEPTNO1, d.dname "DEPT_NAME" from student s, department d
 where s.deptno1 = d.deptno;
 
---2. emp2 Å×ÀÌºí°ú p_grade Å×ÀÌºíÀ» Á¶È¸ÇÏ¿© ÇöÀç Á÷±ÞÀÌ ÀÖ´Â »ç¿øÀÇ ÀÌ¸§°ú Á÷±Þ, ÇöÀç ¿¬ºÀ, ÇØ´ç Á÷±ÞÀÇ ¿¬ºÀÀÇ ÇÏÇÑ±Ý¾×°ú »óÇÑ ±Ý¾×À» ¾Æ·¡ °á°ú È­¸é°ú °°ÀÌ Ãâ·ÂÇÏ¼¼¿ä.
+--2. emp2 í…Œì´ë¸”ê³¼ p_grade í…Œì´ë¸”ì„ ì¡°íšŒí•˜ì—¬ í˜„ìž¬ ì§ê¸‰ì´ ìžˆëŠ” ì‚¬ì›ì˜ ì´ë¦„ê³¼ ì§ê¸‰, í˜„ìž¬ ì—°ë´‰, í•´ë‹¹ ì§ê¸‰ì˜ ì—°ë´‰ì˜ í•˜í•œê¸ˆì•¡ê³¼ ìƒí•œ ê¸ˆì•¡ì„ ì•„ëž˜ ê²°ê³¼ í™”ë©´ê³¼ ê°™ì´ ì¶œë ¥í•˜ì„¸ìš”.
 SELECT name, e2.position, pay, s_pay low_pay, e_pay high_pay from emp2 e2, p_grade p where e2.position = p.position;
-
-
    
---3. Emp2 Å×ÀÌºí°ú p_grade Å×ÀÌºíÀ» Á¶È¸ÇÏ¿© »ç¿øµéÀÇ ÀÌ¸§°ú ³ªÀÌ, ÇöÀç Á÷±Þ , ¿¹»ó Á÷±Þ À» Ãâ·ÂÇÏ¼¼¿ä. 
---¿¹»ó Á÷±ÞÀº ³ªÀÌ·Î °è»êÇÏ¸ç ÇØ´ç ³ªÀÌ°¡ ¹Þ¾Æ¾ß ÇÏ´Â Á÷±ÞÀ» ÀÇ¹ÌÇÕ´Ï´Ù.  ³ªÀÌ´Â ¿À´Ã(sysdate)À» ±âÁØÀ¸·Î ÇÏµÇ trunc ·Î ¼Ò¼öÁ¡ ÀÌÇÏ´Â Àý»èÇØ¼­ °è»êÇÏ¼¼¿ä.
+--3. Emp2 í…Œì´ë¸”ê³¼ p_grade í…Œì´ë¸”ì„ ì¡°íšŒí•˜ì—¬ ì‚¬ì›ë“¤ì˜ ì´ë¦„ê³¼ ë‚˜ì´, í˜„ìž¬ ì§ê¸‰ , ì˜ˆìƒ ì§ê¸‰ ì„ ì¶œë ¥í•˜ì„¸ìš”. 
+--ì˜ˆìƒ ì§ê¸‰ì€ ë‚˜ì´ë¡œ ê³„ì‚°í•˜ë©° í•´ë‹¹ ë‚˜ì´ê°€ ë°›ì•„ì•¼ í•˜ëŠ” ì§ê¸‰ì„ ì˜ë¯¸í•©ë‹ˆë‹¤.  ë‚˜ì´ëŠ” ì˜¤ëŠ˜(sysdate)ì„ ê¸°ì¤€ìœ¼ë¡œ í•˜ë˜ trunc ë¡œ ì†Œìˆ˜ì  ì´í•˜ëŠ” ì ˆì‚­í•´ì„œ ê³„ì‚°í•˜ì„¸ìš”.
 SELECT * from emp2;
 SELECT * from p_grade;
 SELECT name, trunc(months_between(sysdate,e2.birthday)/12) as "age", e2.position as "curr_position", p.position
 from emp2 e2, p_grade p where trunc(months_between(sysdate,e2.birthday)/12) BETWEEN p.s_age and p.e_age;
 
---4 . customer Å×ÀÌºí°ú gift Å×ÀÌºíÀ» JoinÇÏ¿© °í°´ÀÌ ÀÚ±â Æ÷ÀÎÆ®º¸´Ù ³·Àº Æ÷ÀÎÆ®ÀÇ »óÇ° Áß ÇÑ°¡Áö¸¦ ¼±ÅÃÇÒ ¼ö ÀÖ´Ù°í ÇÒ ¶§,
---Notebook À» ¼±ÅÃÇÒ ¼ö ÀÖ´Â °í°´¸í°ú Æ÷ÀÎÆ®, »óÇ°¸íÀ» Ãâ·ÂÇÏ¼¼¿ä.
+--4 . customer í…Œì´ë¸”ê³¼ gift í…Œì´ë¸”ì„ Joiní•˜ì—¬ ê³ ê°ì´ ìžê¸° í¬ì¸íŠ¸ë³´ë‹¤ ë‚®ì€ í¬ì¸íŠ¸ì˜ ìƒí’ˆ ì¤‘ í•œê°€ì§€ë¥¼ ì„ íƒí•  ìˆ˜ ìžˆë‹¤ê³  í•  ë•Œ,
+--Notebook ì„ ì„ íƒí•  ìˆ˜ ìžˆëŠ” ê³ ê°ëª…ê³¼ í¬ì¸íŠ¸, ìƒí’ˆëª…ì„ ì¶œë ¥í•˜ì„¸ìš”.
 SELECT * from customer;
 SELECT * from gift;
 SELECT c.gname, c.point, g.gname from customer c, gift g
 where g.g_start <= c.point and g.gname = 'Notebook';
 
---5. professor Å×ÀÌºí¿¡¼­ ±³¼öÀÇ ¹øÈ£, ±³¼öÀÌ¸§, ÀÔ»çÀÏ, ÀÚ½Åº¸´Ù ÀÔ»çÀÏ ºü¸¥ »ç¶÷ ÀÎ¿ø¼ö¸¦ Ãâ·ÂÇÏ¼¼¿ä. ´Ü ÀÚ½Åº¸´Ù ÀÔ»çÀÏÀÌ ºü¸¥ »ç¶÷¼ö¸¦ ¿À¸§Â÷¼øÀ¸·Î Ãâ·ÂÇÏ¼¼¿ä.  
+--5. professor í…Œì´ë¸”ì—ì„œ êµìˆ˜ì˜ ë²ˆí˜¸, êµìˆ˜ì´ë¦„, ìž…ì‚¬ì¼, ìžì‹ ë³´ë‹¤ ìž…ì‚¬ì¼ ë¹ ë¥¸ ì‚¬ëžŒ ì¸ì›ìˆ˜ë¥¼ ì¶œë ¥í•˜ì„¸ìš”. ë‹¨ ìžì‹ ë³´ë‹¤ ìž…ì‚¬ì¼ì´ ë¹ ë¥¸ ì‚¬ëžŒìˆ˜ë¥¼ ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì¶œë ¥í•˜ì„¸ìš”.  
+SELECT * from professor;--                              as ~ë¡œì¨: ë³„ì¹­ í•´ì¤€ê±°ìž„
+SELECT p1.profno, p1.name, p1.hiredate, count(p2.profno) as count 
+from professor p1, professor p2 where p1.hiredate > p2.hiredate(+)
+GROUP BY p1.profno, p1.name, p1.hiredate ORDER by 3;
 
-
-
---6. emp Å×ÀÌºí¿¡¼­ »ç¿ø¹øÈ£, »ç¿øÀÌ¸§, ÀÔ»çÀÏ, ÀÚ½Åº¸´Ù  ¸ÕÀú ÀÔ»çÇÑ »ç¶÷ ÀÎ¿ø¼ö¸¦ Ãâ·ÂÇÏ¼¼¿ä. ´Ü ÀÚ½Åº¸´Ù ÀÔ»çÀÏÀÌ ºü¸¥ »ç¶÷¼ö¸¦ ¿À¸§Â÷¼øÀ¸·Î Ãâ·ÂÇÏ¼¼¿ä.
-
+--6. emp í…Œì´ë¸”ì—ì„œ ì‚¬ì›ë²ˆí˜¸, ì‚¬ì›ì´ë¦„, ìž…ì‚¬ì¼, ìžì‹ ë³´ë‹¤  ë¨¼ì € ìž…ì‚¬í•œ ì‚¬ëžŒ ì¸ì›ìˆ˜ë¥¼ ì¶œë ¥í•˜ì„¸ìš”. ë‹¨ ìžì‹ ë³´ë‹¤ ìž…ì‚¬ì¼ì´ ë¹ ë¥¸ ì‚¬ëžŒìˆ˜ë¥¼ ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì¶œë ¥í•˜ì„¸ìš”.
+SELECT * from emp;
+SELECT e1.empno, e1.ename, e1.hiredate, count(e2.empno) as count 
+from emp e1, emp e2 where e1.hiredate > e2.hiredate(+)
+GROUP BY e1.empno, e1.ename, e1.hiredate ORDER by 3;
