@@ -80,3 +80,4 @@ SELECT * from emp;
 SELECT e1.empno, e1.ename, e1.hiredate, count(e2.empno) as count 
 from emp e1, emp e2 where e1.hiredate > e2.hiredate(+)
 GROUP BY e1.empno, e1.ename, e1.hiredate ORDER by 3;
+
