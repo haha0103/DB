@@ -1,5 +1,5 @@
 --144p
---Å×ÀÌºí º¹»çÇÏ±â
+--í…Œì´ë¸” ë³µì‚¬í•˜ê¸°
 CREATE table dept3 AS SELECT * from dept2;
 SELECT * from dept2;
 
@@ -13,16 +13,16 @@ SELECT * from dept5;
 
 
 CREATE table dept6 AS SELECT dcode, dname from dept2 where dcode in(1000,1001,1002);
---                                                        ¡èÀÖ´Â°Ô in¿¡ ÀÖÀ¸¸é Ãâ·Â   
+--                                                        â†‘ìˆëŠ”ê²Œ inì— ìˆìœ¼ë©´ ì¶œë ¥   
 SELECT * from dept6;
 
 
---table ±¸Á¶¸¸ °¡Á®¿À°í ½ÍÀ»¶§ ¾²´Â°Å ÀÏºÎ·¯ Æ²¸®°Ô
+--table êµ¬ì¡°ë§Œ ê°€ì ¸ì˜¤ê³  ì‹¶ì„ë•Œ ì“°ëŠ”ê±° ì¼ë¶€ëŸ¬ í‹€ë¦¬ê²Œ
 CREATE table dept7 as SELECT * from dept2 where 1=2;
 SELECT * from dept7;
 
 
---»õ·Î¿î°Å Ãß°¡
+--ìƒˆë¡œìš´ê±° ì¶”ê°€
 ALTER table dept6 add (location VARCHAR2(10));
 SELECT * from dept6;
 
