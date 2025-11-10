@@ -3,33 +3,33 @@ SELECT * from dept7;
 desc dept7;
 
 --149p
---ÀÌ¸§ º¯°æ
---ÄÃ·³ ÀÌ¸§ º¯°æ
+--ì´ë¦„ ë³€ê²½
+--ì»¬ëŸ¼ ì´ë¦„ ë³€ê²½
 ALTER table dept6 add (location VARCHAR2(10));
 alter table dept7 rename COLUMN location to loc;
 SELECT * from dept7;
---Å×ÀÌºí¸í º¯°æ
+--í…Œì´ë¸”ëª… ë³€ê²½
 rename dept7 to dept6;
 SELECT * from dept6;
 
---Å×ÀÌºí ±¸Á¶ º¸±â
+--í…Œì´ë¸” êµ¬ì¡° ë³´ê¸°
 desc dept6;
---ÄÃ·³ÀÇ µ¥ÀÌÅÍ Å©±â Á¶Á¤ÇÏ±â
+--ì»¬ëŸ¼ì˜ ë°ì´í„° í¬ê¸° ì¡°ì •í•˜ê¸°
 alter TABLE dept6 MODIFY (loc VARCHAR2(20));
 desc dept6;
 
---ÄÃ·³ »èÁ¦ÇÏ±â
+--ì»¬ëŸ¼ ì‚­ì œí•˜ê¸°
 alter table dept6 drop COLUMN loc;
 SELECT * from dept6;
 alter table dept6 drop COLUMN location CASCADE CONSTRAINTS;
 
--- truncate drop Â÷ÀÌºñ±³
+-- truncate drop ì°¨ì´ë¹„êµ
 CREATE TABLE dept7 as SELECT * from dept6;
 
 TRUNCATE table dept7;
 SELECT * from dept7;
---TRUNCATE table: ¸ğµç µ¥ÀÌÅÍ¸¦ ºü¸£°Ô »èÁ¦ÇÔ, ±¸Á¶´Â ³²¾ÆÀÖÀ½
+--TRUNCATE table: ëª¨ë“  ë°ì´í„°ë¥¼ ë¹ ë¥´ê²Œ ì‚­ì œí•¨, êµ¬ì¡°ëŠ” ë‚¨ì•„ìˆìŒ, ë³µêµ¬ ê°€ëŠ¥
 
 drop table dept7;
 SELECT * from dept7;
---drop table: µ¥ÀÌÅÍ¿Í ±¸Á¶¸¦ ¸ğµÎ »èÁ¦ÇÔ
+--drop table: ë°ì´í„°ì™€ êµ¬ì¡°ë¥¼ ëª¨ë‘ ì‚­ì œí•¨, ê°€ëŠ¥ ì—¬ë¶€ê°€ dbmsë§ˆë‹¤ ë‹¤ë¦„
