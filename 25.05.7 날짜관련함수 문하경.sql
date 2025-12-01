@@ -1,11 +1,11 @@
---2025/05/07 ³¯Â¥ °ü·Ã ÇÔ¼ö
----sysdate:½Ã½ºÅÛÀÇ ÇöÀç ³¯Â¥¿Í ½Ã°£
---¿ù
+--2025/05/07 ë‚ ì§œ ê´€ë ¨ í•¨ìˆ˜
+---sysdate:ì‹œìŠ¤í…œì˜ í˜„ì¬ ë‚ ì§œì™€ ì‹œê°„
+--ì›”
 SELECT sysdate, to_char(sysdate) from dual;
-SELECT sysdate, to_char(sysdate) "¹®ÀÚ¿­·Î ¹Ù²ñ", to_char(sysdate,'mm'), to_char(sysdate,'month')from dual;
---ÀÏ
-SELECT sysdate, to_char(sysdate) "¹®ÀÚ¿­·Î ¹Ù²ñ", to_char(sysdate,'dd'), to_char(sysdate,'day'),to_char(sysdate,'ddth')from dual;
---½Ã°£
+SELECT sysdate, to_char(sysdate) "ë¬¸ìì—´ë¡œ ë°”ë€œ", to_char(sysdate,'mm'), to_char(sysdate,'month')from dual;
+--ì¼
+SELECT sysdate, to_char(sysdate) "ë¬¸ìì—´ë¡œ ë°”ë€œ", to_char(sysdate,'dd'), to_char(sysdate,'day'),to_char(sysdate,'ddth')from dual;
+--ì‹œê°„
  SELECT sysdate, to_char(sysdate,'rrrr-mm-dd:hh24:mi:ss') from dual;
 
 SELECT * from student;
